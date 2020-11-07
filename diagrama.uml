@@ -1,0 +1,82 @@
+class Ninio {
+	
+	actitud
+	caramelos
+	elementosPuestos
+	capacidadDeSusto()
+	intentarAsustar(adulto) 
+	tieneMasDe(n)
+
+}
+
+class Elemento {
+    capacidadDeSusto
+	capacidadDeSusto()
+}
+
+maquillaje -up-|> Elemento
+tierno -up-|> Elemento
+terrorifico -up-|> Elemento
+
+object maquillaje {
+}
+
+object tierno {
+}
+
+object terrorifico {
+}
+
+class Adulto {
+	caramelosPorSusto(asustador)
+	cantidadDeCaramelosADarAsustado()
+	podesSerAsustado(asustador)
+} 
+
+class Abuelo {
+	cantidadDeCaramelosADarAsustado()
+	podesSerAsustado(asustador)
+}
+
+Abuelo -up-|> Adulto
+
+Ninio -> "*" Elemento
+
+Adulto .up.|> Asustable
+adultoNecio .up.|> Asustable
+
+Adulto -left> "*" Asustador
+
+interface Asustable{
+ caramelosPorSusto(asustador)
+}
+
+object adultoNecio {
+	caramelosPorSusto(asustador)
+}
+
+Legion -> "*" Asustador
+
+interface Asustador {
+    intentarAsustar(adulto)
+	caramelos() 
+	capacidadDeSusto()
+	tieneMasDe(n)
+}
+
+class Legion {
+    intentarAsustar(adulto)
+	caramelos() 
+	capacidadDeSusto()
+	tieneMasDe(n)
+}
+
+Ninio .up.|> Asustador
+Legion .up.|> Asustador
+
+Barrio -> "*" Ninio
+
+class Barrio{
+ elementosMasUtilizados()
+ topConMasCaramelos(n)
+}
